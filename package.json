@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^0.5.1"
+    "chalk": "^0.5.1",
+    "indeks": "git+ssh://git@github.com:joshuafcole/indeks.git#0.0.1"
   }
 }
