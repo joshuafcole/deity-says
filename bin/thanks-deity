@@ -26,7 +26,11 @@ var messages = {
 var speaker = util.choose(deities);
 var drawing = util.choose(speaker.drawings);
 var message = util.choose(messages[speaker.name]);
-var bubble = util.bubblify(message);
+
+var dimensions = process.stdout.getWindowSize();
+var artWidth = util.getMaxWidth(drawing);
+var bubbleWidth = dimensions[0] - artWidth;
+var bubble = util.bubblify(message, bubbleWidth);
 
 function showMessage() {
   process.stdout.write(util.inlineMerge(drawing, bubble, speaker.style));
