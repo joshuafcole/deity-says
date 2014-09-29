@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+var deities = require('../lib/deities');
+var util = require('../lib/util');
+
+var speaker = util.choose(deities);
+var drawing = util.choose(speaker.drawings);
+
+function showMessage(messages) {
+  var bubble = util.bubblify(messages.join(' '));
+  process.stdout.write(util.inlineMerge(drawing, bubble, speaker.style));
+}
+
+if(process.stdin.isTTY) {
+  showMessage(process.argv.slice(2));
+} else {
+  process.stdin.on('readable', function() {
+    var chunk = process.stdin.read();
+    if(chunk !== null) {
+      showMessage([chunk]);
+    }
+  });
+  process.stdin.on('end', process.exit);
+}

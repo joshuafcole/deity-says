@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+
 
 var chalk = require('chalk');
 var util = require('./lib/util');

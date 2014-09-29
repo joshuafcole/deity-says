@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+var deities = require('../lib/deities');
+var util = require('../lib/util');
+
+var messages = {
+  'Satan': [
+    'Don\'t sweat it.',
+    'That\'ll cost you your soul.',
+    'Anything to one up the big man.',
+    'Don\'t mention it. Seriously. Don\'t.',
+    'Your service has been richly rewarded.'
+  ],
+  'Flying Spaghetti Monster': [
+    'My noodly appendages will forever by within you.',
+    'Volcanoes of beer await your continued loyalty.',
+    'Don\'t forget to fight global warming by becoming a pirate!'
+  ],
+  'Dionysus': [
+    'Thank me with liquor!',
+    'Commence the merry-making!',
+    'To the pub for a celebration with you.'
+  ]
+};
+
+var speaker = util.choose(deities);
+var drawing = util.choose(speaker.drawings);
+var message = util.choose(messages[speaker.name]);
+var bubble = util.bubblify(message);
+
+function showMessage() {
+  process.stdout.write(util.inlineMerge(drawing, bubble, speaker.style));
+}
+
+if(process.stdin.isTTY) {
+  showMessage();
+} else {
+  process.stdin.pipe(process.stdout);
+  process.stdin.on('end', showMessage);
+}
