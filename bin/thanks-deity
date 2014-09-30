@@ -30,7 +30,7 @@ var message = util.choose(messages[speaker.name]);
 var dimensions = process.stdout.getWindowSize();
 var artWidth = util.getMaxWidth(drawing);
 var bubbleWidth = dimensions[0] - artWidth;
-var bubble = util.bubblify(message, bubbleWidth);
+var bubble = util.bubblify(message, bubbleWidth, speaker.style.transformLast);
 
 function showMessage() {
   process.stdout.write(util.inlineMerge(drawing, bubble, speaker.style));
