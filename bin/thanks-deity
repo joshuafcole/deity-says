@@ -27,7 +27,10 @@ var speaker = util.choose(deities);
 var drawing = util.choose(speaker.drawings);
 var message = util.choose(messages[speaker.name]);
 
-var dimensions = process.stdout.getWindowSize();
+var dimensions = [160, 0];
+if (process.stdout.isTTY) {
+  dimensions = process.stdout.getWindowSize();
+}
 var artWidth = util.getMaxWidth(drawing);
 var bubbleWidth = dimensions[0] - artWidth;
 var bubble = util.bubblify(message, bubbleWidth, speaker.style.transformLast);

@@ -6,7 +6,10 @@ var util = require('../lib/util');
 var speaker = util.choose(deities);
 var drawing = util.choose(speaker.drawings);
 
-var dimensions = process.stdout.getWindowSize();
+var dimensions = [120, 0];
+if (process.stdout.isTTY) {
+  dimensions = process.stdout.getWindowSize();
+}
 var artWidth = util.getMaxWidth(drawing);
 var bubbleWidth = dimensions[0] - artWidth;
 function showMessage(messages) {
