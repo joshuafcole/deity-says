@@ -14,7 +14,7 @@ function showMessage(art) {
 }
 
 if(process.stdin.isTTY) {
-  var filename = process.argv[3];
+  var filename = process.argv[2];
   if(filename) {
     var art = fs.readFileSync(filename, {encoding: 'utf8'});
     showMessage(art);
