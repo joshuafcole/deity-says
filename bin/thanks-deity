@@ -30,6 +30,11 @@ var messages = {
   'Icarus': [
     'Listen to your parents kids or your wax wings will burn off too!',
     'Look dad I\'m flying! *begins falling* Nooooooooooooooo.'      
+  ],
+  'Mr. Hanky': [
+    String.fromCharCode(0x266B) + '\nOh Christmas Day, I travel \'round the world and say: Taoist, Krishnas, Buddhists and all you atheists too! Merry fucking Christmas to you!\n' + String.fromCharCode(0x266B),
+    'Hidey Ho.',
+    'If you don\'t like it, you can suck my little balls.'
   ]
 };
 
