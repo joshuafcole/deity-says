@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+var reverse = require('ascii-art-reverse');
+var fs = require('fs');
+var util = require('../lib/util');
+
+var dimensions = [120, 0];
+if (process.stdout.isTTY) {
+  dimensions = process.stdout.getWindowSize();
+}
+
+function showMessage(art) {
+  process.stdout.write(util.inlineMerge(reverse(art), '', {}));
+}
+
+if(process.stdin.isTTY) {
+  var filename = process.argv[3];
+  if(filename) {
+    var art = fs.readFileSync(filename, {encoding: 'utf8'});
+    showMessage(art);
+  }
+
+} else {
+  process.stdin.on('readable', function() {
+    var chunk = process.stdin.read();
+    if(chunk !== null) {
+      showMessage(chunk.toString());
+    }
+  });
+  process.stdin.on('end', process.exit);
+}

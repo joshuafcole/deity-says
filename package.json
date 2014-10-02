@@ -11,5 +11,8 @@
   "dependencies": {
     "chalk": "^0.5.1",
     "indeks": "git+ssh://git@github.com:joshuafcole/indeks.git#0.0.1"
+  },
+  "devDependencies": {
+    "ascii-art-reverse": "0.0.0"
   }
 }
