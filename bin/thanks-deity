@@ -19,7 +19,17 @@ var messages = {
   'Dionysus': [
     'Thank me with liquor!',
     'Commence the merry-making!',
-    'To the pub for a celebration with you.'
+    'To the pub for a celebration with you.',
+    'Is that you\'re wine? No! That\'s my wine.'
+  ],
+  'Jesus': [
+    'Vengeance is mine!',
+    'I died for your sins, or something like that.',
+    String.fromCharCode(0x266B) + '\nJesus! Jesus! Jesus! \nNo one wants to be defeated! \nShowin\' how funky strong is your fight. \nIt doesn\'t matter who\'s wrong or right. \nJust Jesus! Jesus! Jesus!\nJust Jesus! Jesus! Jesus!\n' + String.fromCharCode(0x266B)
+  ],
+  'Icarus': [
+    'Listen to your parents kids or your wax wings will burn off too!',
+    'Look dad I\'m flying! *begins falling* Nooooooooooooooo.'      
   ]
 };
 
